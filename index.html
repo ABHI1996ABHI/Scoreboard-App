@@ -4,17 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorecard App</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
-    <div class="container">
-        <div>
-            <h3>HOME</h3>
+    <main class="scoreboard">
+        <section class="team">
+            <h2 class="team__name">HOME</h2>
+            <div class="display">
+                <span class="digits" id="home-score">0</span>
+            </div>
+            <div class="controls">
+                <button class="btn" data-delta="1" onclick="addone()" data-team="home">+1</button>
+                <button class="btn" data-delta="2" onclick="addtwo()" data-team="home">+2</button>
+                <button class="btn" data-delta="3" onclick="addthree()" data-team="home">+3</button>
+            </div>
+        </section>
+        <section class="team">
+            <h2 class="team__name">GUEST</h2>
+            <div class="display">
+                <span class="digits" id="guest-score">0</span>
+            </div>
+            <div class="controls">
+                <button class="btn" onclick="addone()" data-delta="1" data-team="guest">+1</button>
+                <button class="btn" onclick="addtwo()" data-delta="2" data-team="guest">+2</button>
+                <button class="btn" onclick="addthree()" data-delta="3" data-team="guest">+3</button>
+            </div>
+        </section>
+        <div class="actions">
+            <button class="btn btn--reset" aria-label="Reset scores" title="Reset">
+                RESET
+            </button>
         </div>
-        <div>
-            <h3>GUEST</h3>
-        </div>
-    </div>
+    </main>
     <script src="index.js"></script>
     
 </body>

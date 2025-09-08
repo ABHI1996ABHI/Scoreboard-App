@@ -1,0 +1,115 @@
+/* Base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: #0f2047; /* deep navy like Figma */
+    display: grid;
+    place-items: center;
+}
+
+/* Layout */
+.scoreboard {
+    width: min(960px, 92vw);
+    background: #16244e;
+    border-radius: 8px;
+    padding: 56px 48px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.35) inset, 0 0 0 2px rgba(255,255,255,.02);
+}
+
+.team { text-align: center; }
+
+.team__name {
+    margin: 0 0 16px;
+    color: #e9eef7;
+    font-size: 56px;
+    letter-spacing: 2px;
+}
+
+/* Digital display panel */
+.display {
+    margin: 12px auto 24px;
+    width: 320px;
+    height: 220px;
+    background: #0b0609;
+    border-radius: 10px;
+    box-shadow: 0 12px 20px rgba(0,0,0,.4);
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.display::after {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    border: 3px solid #ff3ca6; /* neon magenta outline like Figma */
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.digits {
+    font-family: "Seven Segment", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 158px;
+    color: #ff5a76; /* pinkish-red */
+    text-shadow: 0 0 8px rgba(255,90,118,.6);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn {
+    width: 92px;
+    height: 68px;
+    border-radius: 8px;
+    border: 3px solid #f3c43c; /* gold border on left group in Figma */
+    background: #21325f;
+    color: #cde0ff;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 0 rgba(0,0,0,.35), inset 0 0 0 2px rgba(255,255,255,.06);
+    cursor: pointer;
+    transition: transform .06s ease, filter .15s ease;
+}
+
+.team:nth-child(2) .btn { border-color: #98b2ff; }
+
+.btn:active { transform: translateY(2px); }
+
+.btn:focus { outline: 3px solid rgba(255,255,255,.25); outline-offset: 2px; }
+
+/* Reset button area */
+.actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.btn--reset {
+    width: 200px;
+    height: 56px;
+    border-radius: 999px;
+    background: #ee3b4a;
+    border-color: #ff9aa6;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+@media (max-width: 760px) {
+    .scoreboard { grid-template-columns: 1fr; gap: 40px; padding: 40px 24px; }
+    .team__name { font-size: 44px; }
+    .display { width: 280px; height: 190px; }
+    .digits { font-size: 140px; }
+}
+
